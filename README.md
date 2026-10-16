@@ -13,9 +13,9 @@ figures in the style of the slides, **animations** you can step through frame by
 | 00 | **Artificial Neural Networks**: neurons, activations, learning | 0 · Part 1 | one running example (iris petals) · neuron playground: decision line + live loss landscape · why non-linearity: a hand-built 2 → 2 → 1 network · gradient-descent animation · backpropagation animation, layer by layer · the training loop step by step on mini-batches of 5 flowers | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/00_neural_networks_basics.ipynb) |
 | 01 | **Computer Vision & an MLP on MNIST** | 0 · Part 2 | images as numbers · classification / detection / segmentation / depth run live on boat photos · demo: an MLP on MNIST · why MLPs fail on images: shifting a digit by 2–3 px breaks it (animation) · shuffled-pixel experiment · scaling to 224 × 224 × 3: parameters, memory, measured training time, out of memory | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/01_computer_vision_and_mlp_mnist.ipynb) |
 | 02 | **Convolutional Neural Networks** | 0 · Part 3 | mini-project: hand-crafted kernels on the 224 × 224 boat photos → **learning the Sobel kernel** by gradient descent (animation) → CNN on MNIST · animated Sobel walkthrough (all 36 positions) · stride/padding & max-pool animations · translation equivariance animation · parameters at 224 × 224: CNN vs. MLP · **the CNN beats the MLP** with fewer parameters · MLP vs. CNN on shifted digits (animation) · ResNet feature hierarchy | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/02_convolutional_neural_networks.ipynb) |
-| 03 | **Vision Foundation Models: the CNN era** | 1 · Part 1 | short recap: a kernel learned from data (notebook 02) · stride = K → patches · ImageNet history · plain vs. residual networks experiment · ResNet-50 feature extraction, t-SNE, retrieval · **linear probe vs. training from scratch** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/03_vision_foundation_models.ipynb) |
+| 03 | **Vision Foundation Models: the CNN era** | 1 · Part 1 | short recap: a kernel learned from data (notebook 02) · stride = K → patches · ImageNet history · plain vs. residual networks experiment · ResNet-50 features of **six vessel types** (our maritime dataset): t-SNE, retrieval · **race: linear probe vs. training from scratch** (animation) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/03_vision_foundation_models.ipynb) |
 | 04 | **Vision Transformers** | 1 · Part 2 | self-attention from scratch + animation · patchification animation · "patch embedding = conv" proof · learned positional embeddings · demo: a mini-ViT trained on MNIST · [CLS] attention through 12 layers, and why it looks at the sky (artifact tokens) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/04_vision_transformers.ipynb) |
-| 05 | **Self-supervised pretraining & transfer** | 1 · Part 3 | mask-ratio animation + real MAE reconstructions · DINO multi-crop & attention heads · DINOv2 PCA: boat segmentation with zero labels · frozen benchmarking (k-NN & linear) · **linear head vs. partial vs. full fine-tuning** with 1,000 labels | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/05_self_supervised_learning_and_transfer.ipynb) |
+| 05 | **Self-supervised pretraining & transfer** | 1 · Part 3 | mask-ratio animation + real MAE reconstructions · DINO multi-crop & attention heads · DINOv2 PCA: boat segmentation with zero labels · first-layer filters: random vs. supervised vs. self-supervised · frozen benchmarking on the vessel dataset (k-NN & linear) · **race: linear head vs. partial vs. full fine-tuning** with 50 labels per class (animation) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/05_self_supervised_learning_and_transfer.ipynb) |
 
 > The Colab badges point to the `main` branch of this repository. If the repository is private, Colab asks you to
 > authorise GitHub the first time (or use *File → Upload notebook*). For students, either make the repo public or
@@ -31,7 +31,7 @@ figures in the style of the slides, **animations** you can step through frame by
 * **No exercises:** every notebook is a demo. 🎤 marks prompts for the presenter: questions for the audience (the answer
   is folded away, click to reveal) or a value worth changing live.
 * Figure-drawing code is hidden in collapsed cells (🎨 / 🎞️) so the visible code stays focused on the ideas.
-* Approximate run time on a Colab T4: 00 ~1 min · 01 ~1.5 min · 02 ~2.5 min · 03 ~3 min · 04 ~2 min · 05 ~5 min.
+* Approximate run time on a Colab T4: 00 ~1 min · 01 ~1.5 min · 02 ~2.5 min · 03 ~2 min · 04 ~2 min · 05 ~3–4 min (03–05 estimated, not yet timed on a T4).
 
 ## How the material was restructured
 
@@ -57,6 +57,13 @@ All six notebooks are **show-and-tell**: the former exercises are now demos (the
   (notebook 02). This makes "spatial structure" and "inductive bias" concrete, and it pays off again in the ViT notebook.
 
 **Session 1 (Foundation Models & ViT)**
+* **Running example: a small maritime dataset.** 450 photos of six vessel types (sailboat, speedboat, ferry, cruise ship,
+  cargo/container ship, fishing vessel) from Open Images, with human-verified labels; 50 training and 25 test photos per
+  class. It replaces CIFAR-10 in notebooks 03 and 05, so "learning from data" is shown on maritime data with a realistic number of
+  labels. The image ids are embedded in the notebooks and the photos are downloaded at runtime (≈ 90 MB, cached).
+* Learning is shown as it happens: an epoch-by-epoch race between a linear probe and a CNN trained from scratch (03), and between
+  the four adaptation strategies (05). Notebook 05 also shows what random, supervised and self-supervised backbones learned in
+  their very first layer, the bridge back to the Sobel kernel of notebook 02.
 * The recap is short and builds the bridge to the new material: one static figure of the kernel that notebook 02 learned
   from data (same photos, same start; no second animation), then stride = K → patches → tokens.
 * Every claim gets a small experiment: skip connections (plain vs. residual at depth 8 and 50), the value of pretraining
@@ -88,5 +95,8 @@ jupyter lab notebooks/
 
 The maritime example photos are loaded at runtime from the [COCO 2017 validation set](https://cocodataset.org)
 (Flickr images under Creative Commons licences); they are not redistributed in this repository.
+The vessel dataset of notebooks 03 and 05 is loaded at runtime from [Open Images V7](https://storage.googleapis.com/openimages/web/index.html)
+(annotations CC BY 4.0, photos from Flickr under CC BY 2.0); title, author and Flickr page of every photo are listed in
+[`assets/vessel_photo_credits.csv`](assets/vessel_photo_credits.csv).
 Pretrained models: torchvision, and on the Hugging Face Hub `google/vit-base-patch16-224`, `facebook/vit-mae-base`,
 `facebook/dino-vits8`, `facebook/dinov2-small`, `depth-anything/Depth-Anything-V2-Small-hf`.
