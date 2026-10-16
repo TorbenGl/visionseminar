@@ -2,20 +2,20 @@
 
 *Torben Globisch · Chair for Visual and Analytic Computing in Ocean Technologies (VACOT)*
 
-Interactive Jupyter/Colab versions of the introductory seminar sessions. Each notebook mixes short explanations with
-figures in the style of the slides, **animations** you can step through frame by frame, live demos on **maritime photos**,
-and hands-on exercises (with hidden solutions).
+Interactive Jupyter/Colab versions of the introductory seminar sessions, written as **show-and-tell** material for the
+lecture: the presenter runs them top to bottom, there are no exercises. Each notebook mixes short explanations with
+figures in the style of the slides, **animations** you can step through frame by frame, and live demos on **maritime photos**.
 
 ## Notebooks
 
 | # | Notebook | Session | Highlights | Open |
 |---|---|---|---|---|
-| 00 | **Artificial Neural Networks**: neurons, activations, learning | 0 · Part 1 | show-and-tell, one running example (iris petals) · neuron playground: decision line + live loss landscape · why non-linearity: a hand-built 2 → 2 → 1 network · gradient-descent animation · backpropagation animation, layer by layer · the training loop step by step on mini-batches of 5 flowers | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/00_neural_networks_basics.ipynb) |
-| 01 | **Computer Vision & an MLP on MNIST** | 0 · Part 2 | images as numbers · classification / detection / segmentation / depth run live on boat photos · **Exercise 2: MLP on MNIST** · why MLPs fail on images: shifting a digit by 2–3 px breaks it (animation) · shuffled-pixel experiment · scaling to 224 × 224 × 3: parameters, memory, measured training time, out of memory | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/01_computer_vision_and_mlp_mnist.ipynb) |
-| 02 | **Convolutional Neural Networks** | 0 · Part 3 | mini-project: hand-crafted kernels on the 224 × 224 boat photos → **learning the Sobel kernel** by gradient descent (animation) → CNN on MNIST · animated Sobel walkthrough (all 36 positions) · stride/padding & max-pool animations · translation equivariance animation · parameters at 224 × 224: CNN vs. MLP · **Exercise 3: CNN on MNIST** · MLP vs. CNN on shifted digits (animation) · ResNet feature hierarchy | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/02_convolutional_neural_networks.ipynb) |
-| 03 | **Vision Foundation Models: the CNN era** | 1 · Part 1 | a random kernel *learning* to become Sobel (animation) · stride = K → patches · ImageNet history · plain vs. residual networks experiment · ResNet-50 feature extraction, t-SNE, retrieval · **linear probe vs. training from scratch** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/03_vision_foundation_models.ipynb) |
-| 04 | **Vision Transformers** | 1 · Part 2 | self-attention from scratch + animation · patchification animation · "patch embedding = conv" proof · learned positional embeddings · **Exercise: build a mini-ViT** · [CLS] attention through 12 layers, and why it looks at the sky (artifact tokens) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/04_vision_transformers.ipynb) |
-| 05 | **Self-supervised pretraining & transfer** | 1 · Part 3 | mask-ratio animation + real MAE reconstructions · DINO multi-crop & attention heads · DINOv2 PCA: boat segmentation with zero labels · frozen benchmarking (k-NN & linear) · **Exercise: linear head vs. partial vs. full fine-tuning** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/05_self_supervised_learning_and_transfer.ipynb) |
+| 00 | **Artificial Neural Networks**: neurons, activations, learning | 0 · Part 1 | one running example (iris petals) · neuron playground: decision line + live loss landscape · why non-linearity: a hand-built 2 → 2 → 1 network · gradient-descent animation · backpropagation animation, layer by layer · the training loop step by step on mini-batches of 5 flowers | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/00_neural_networks_basics.ipynb) |
+| 01 | **Computer Vision & an MLP on MNIST** | 0 · Part 2 | images as numbers · classification / detection / segmentation / depth run live on boat photos · demo: an MLP on MNIST · why MLPs fail on images: shifting a digit by 2–3 px breaks it (animation) · shuffled-pixel experiment · scaling to 224 × 224 × 3: parameters, memory, measured training time, out of memory | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/01_computer_vision_and_mlp_mnist.ipynb) |
+| 02 | **Convolutional Neural Networks** | 0 · Part 3 | mini-project: hand-crafted kernels on the 224 × 224 boat photos → **learning the Sobel kernel** by gradient descent (animation) → CNN on MNIST · animated Sobel walkthrough (all 36 positions) · stride/padding & max-pool animations · translation equivariance animation · parameters at 224 × 224: CNN vs. MLP · **the CNN beats the MLP** with fewer parameters · MLP vs. CNN on shifted digits (animation) · ResNet feature hierarchy | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/02_convolutional_neural_networks.ipynb) |
+| 03 | **Vision Foundation Models: the CNN era** | 1 · Part 1 | short recap: a kernel learned from data (notebook 02) · stride = K → patches · ImageNet history · plain vs. residual networks experiment · ResNet-50 feature extraction, t-SNE, retrieval · **linear probe vs. training from scratch** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/03_vision_foundation_models.ipynb) |
+| 04 | **Vision Transformers** | 1 · Part 2 | self-attention from scratch + animation · patchification animation · "patch embedding = conv" proof · learned positional embeddings · demo: a mini-ViT trained on MNIST · [CLS] attention through 12 layers, and why it looks at the sky (artifact tokens) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/04_vision_transformers.ipynb) |
+| 05 | **Self-supervised pretraining & transfer** | 1 · Part 3 | mask-ratio animation + real MAE reconstructions · DINO multi-crop & attention heads · DINOv2 PCA: boat segmentation with zero labels · frozen benchmarking (k-NN & linear) · **linear head vs. partial vs. full fine-tuning** with 1,000 labels | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/05_self_supervised_learning_and_transfer.ipynb) |
 
 > The Colab badges point to the `main` branch of this repository. If the repository is private, Colab asks you to
 > authorise GitHub the first time (or use *File → Upload notebook*). For students, either make the repo public or
@@ -25,12 +25,11 @@ and hands-on exercises (with hidden solutions).
 
 * **GPU:** *Runtime → Change runtime type → T4 GPU*. Notebooks 00 and 02 run fine on CPU; 03–05 really want the GPU.
 * **Run everything once before the lecture** (*Runtime → Run all*). This downloads datasets and pretrained weights
-  (up to ~600 MB for notebook 05), so nothing stalls on stage. *Run all* always succeeds because every exercise is followed
-  by a solution cell.
+  (up to ~600 MB for notebook 05), so nothing stalls on stage.
 * **Animations** render as an HTML player: pause it and use the ◀ ▶ step buttons to walk through e.g. the Sobel
   computation one kernel position at a time.
-* **Exercises** are marked ✏️. The solution cell right after each one is collapsed (Colab "form" cell): double-click to reveal.
-  Running a solution cell overwrites the student's own version, so students should skip it when testing their code.
+* **No exercises:** every notebook is a demo. 🎤 marks prompts for the presenter: questions for the audience (the answer
+  is folded away, click to reveal) or a value worth changing live.
 * Figure-drawing code is hidden in collapsed cells (🎨 / 🎞️) so the visible code stays focused on the ideas.
 * Approximate run time on a Colab T4: 00 ~1 min · 01 ~1.5 min · 02 ~2.5 min · 03 ~3 min · 04 ~2 min · 05 ~5 min.
 
@@ -38,8 +37,11 @@ and hands-on exercises (with hidden solutions).
 
 The two slide decks were turned into six notebooks, three per session, each with a single theme.
 
+All six notebooks are **show-and-tell**: the former exercises are now demos (the solution code runs in place), and the
+"try this" prompts became 🎤 questions for the audience with a folded answer.
+
 **Session 0 (ANNs & CNNs)**
-* Notebook 00 is **show-and-tell** and follows one running example, the iris petals: a single neuron solved by hand in a
+* Notebook 00 follows one running example, the iris petals: a single neuron solved by hand in a
   playground (Task A works, Task B can't be solved with one line) → a hand-built 2 → 2 → 1 network shows why hidden layers
   need a non-linearity → gradient descent, backpropagation (layer by layer) and the training loop as animations. The old
   Iris exercise was removed.
@@ -50,14 +52,13 @@ The two slide decks were turned into six notebooks, three per session, each with
   time per step, and an out-of-memory attempt for an MLP with the same shape as the MNIST one).
 * Notebook 02 is organised as a mini-project: hand-crafted kernels on the 224 × 224 photos → learn the Sobel kernel from
   input–target pairs → a CNN on MNIST with fewer parameters, which also survives the shift experiment from notebook 01.
-  (Notebook 03 repeats the kernel-learning demo as a short recap.)
 * Stride/padding is taught **once** (notebook 02) instead of in both decks.
 * New experiment that ties the session together: an MLP doesn't care if you **shuffle the pixels** (notebook 01), a CNN does
   (notebook 02). This makes "spatial structure" and "inductive bias" concrete, and it pays off again in the ViT notebook.
 
 **Session 1 (Foundation Models & ViT)**
-* The recap is now short and builds the bridge to the new material: *learning* a kernel from input–target pairs (animated),
-  then stride = K → patches → tokens.
+* The recap is short and builds the bridge to the new material: one static figure of the kernel that notebook 02 learned
+  from data (same photos, same start; no second animation), then stride = K → patches → tokens.
 * Every claim gets a small experiment: skip connections (plain vs. residual at depth 8 and 50), the value of pretraining
   (linear probe vs. training from scratch), supervised vs. self-supervised features (frozen benchmark), and the adaptation
   spectrum (linear / MLP head / partial / full fine-tuning).
