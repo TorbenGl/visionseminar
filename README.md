@@ -11,8 +11,8 @@ and hands-on exercises (with hidden solutions).
 | # | Notebook | Session | Highlights | Open |
 |---|---|---|---|---|
 | 00 | **Artificial Neural Networks**: neurons, activations, learning | 0 · Part 1 | show-and-tell, one running example (iris petals) · neuron playground: decision line + live loss landscape · why non-linearity: a hand-built 2 → 2 → 1 network · gradient-descent animation · backpropagation animation, layer by layer · the training loop step by step on mini-batches of 5 flowers | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/00_neural_networks_basics.ipynb) |
-| 01 | **Computer Vision & an MLP on MNIST** | 0 · Part 2 | images as numbers · classification / detection / segmentation / depth run live on boat photos · **Exercise 2: MLP on MNIST** · shuffled-pixel experiment | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/01_computer_vision_and_mlp_mnist.ipynb) |
-| 02 | **Convolutional Neural Networks** | 0 · Part 3 | animated Sobel walkthrough (all 36 positions) · stride/padding & max-pool animations · translation equivariance animation · shape walkthrough · **Exercise 3: CNN on MNIST** · ResNet feature hierarchy | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/02_convolutional_neural_networks.ipynb) |
+| 01 | **Computer Vision & an MLP on MNIST** | 0 · Part 2 | images as numbers · classification / detection / segmentation / depth run live on boat photos · **Exercise 2: MLP on MNIST** · why MLPs fail on images: shifting a digit by 2–3 px breaks it (animation) · shuffled-pixel experiment · scaling to 224 × 224 × 3: parameters, memory, measured training time, out of memory | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/01_computer_vision_and_mlp_mnist.ipynb) |
+| 02 | **Convolutional Neural Networks** | 0 · Part 3 | mini-project: hand-crafted kernels on the 224 × 224 boat photos → **learning the Sobel kernel** by gradient descent (animation) → CNN on MNIST · animated Sobel walkthrough (all 36 positions) · stride/padding & max-pool animations · translation equivariance animation · parameters at 224 × 224: CNN vs. MLP · **Exercise 3: CNN on MNIST** · MLP vs. CNN on shifted digits (animation) · ResNet feature hierarchy | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/02_convolutional_neural_networks.ipynb) |
 | 03 | **Vision Foundation Models: the CNN era** | 1 · Part 1 | a random kernel *learning* to become Sobel (animation) · stride = K → patches · ImageNet history · plain vs. residual networks experiment · ResNet-50 feature extraction, t-SNE, retrieval · **linear probe vs. training from scratch** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/03_vision_foundation_models.ipynb) |
 | 04 | **Vision Transformers** | 1 · Part 2 | self-attention from scratch + animation · patchification animation · "patch embedding = conv" proof · learned positional embeddings · **Exercise: build a mini-ViT** · [CLS] attention through 12 layers, and why it looks at the sky (artifact tokens) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/04_vision_transformers.ipynb) |
 | 05 | **Self-supervised pretraining & transfer** | 1 · Part 3 | mask-ratio animation + real MAE reconstructions · DINO multi-crop & attention heads · DINOv2 PCA: boat segmentation with zero labels · frozen benchmarking (k-NN & linear) · **Exercise: linear head vs. partial vs. full fine-tuning** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/05_self_supervised_learning_and_transfer.ipynb) |
@@ -32,7 +32,7 @@ and hands-on exercises (with hidden solutions).
 * **Exercises** are marked ✏️. The solution cell right after each one is collapsed (Colab "form" cell): double-click to reveal.
   Running a solution cell overwrites the student's own version, so students should skip it when testing their code.
 * Figure-drawing code is hidden in collapsed cells (🎨 / 🎞️) so the visible code stays focused on the ideas.
-* Approximate run time on a Colab T4: 00 ~1 min · 01 ~1 min · 02 ~2 min · 03 ~3 min · 04 ~2 min · 05 ~5 min.
+* Approximate run time on a Colab T4: 00 ~1 min · 01 ~1.5 min · 02 ~2.5 min · 03 ~3 min · 04 ~2 min · 05 ~5 min.
 
 ## How the material was restructured
 
@@ -45,6 +45,12 @@ The two slide decks were turned into six notebooks, three per session, each with
   Iris exercise was removed.
 * The **Sobel walkthrough** moved here from the Session 1 recap. It is the clearest intuition for convolution, so it now
   sits where convolution is introduced (as one animation instead of five slides).
+* Notebook 01 makes the case against MLPs on images with three experiments: moving the digits by 2–3 px (accuracy collapses),
+  shuffling the pixels (the MLP doesn't care), and scaling to 224 × 224 × 3 (parameter count, training memory, measured
+  time per step, and an out-of-memory attempt for an MLP with the same shape as the MNIST one).
+* Notebook 02 is organised as a mini-project: hand-crafted kernels on the 224 × 224 photos → learn the Sobel kernel from
+  input–target pairs → a CNN on MNIST with fewer parameters, which also survives the shift experiment from notebook 01.
+  (Notebook 03 repeats the kernel-learning demo as a short recap.)
 * Stride/padding is taught **once** (notebook 02) instead of in both decks.
 * New experiment that ties the session together: an MLP doesn't care if you **shuffle the pixels** (notebook 01), a CNN does
   (notebook 02). This makes "spatial structure" and "inductive bias" concrete, and it pays off again in the ViT notebook.
