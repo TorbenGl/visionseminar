@@ -10,7 +10,7 @@ and hands-on exercises (with hidden solutions).
 
 | # | Notebook | Session | Highlights | Open |
 |---|---|---|---|---|
-| 00 | **Artificial Neural Networks**: neurons, activations, learning | 0 · Part 1 | interactive neuron playground · gradient-descent animation (3 learning rates) · animated decision boundary with/without non-linearity · **Exercise 1: Iris** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/00_neural_networks_basics.ipynb) |
+| 00 | **Artificial Neural Networks**: neurons, activations, learning | 0 · Part 1 | show-and-tell, one running example (iris petals) · neuron playground: decision line + live loss landscape · why non-linearity: a hand-built 2 → 2 → 1 network · gradient-descent animation · backpropagation animation, layer by layer · the training loop step by step on mini-batches of 5 flowers | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/00_neural_networks_basics.ipynb) |
 | 01 | **Computer Vision & an MLP on MNIST** | 0 · Part 2 | images as numbers · classification / detection / segmentation / depth run live on boat photos · **Exercise 2: MLP on MNIST** · shuffled-pixel experiment | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/01_computer_vision_and_mlp_mnist.ipynb) |
 | 02 | **Convolutional Neural Networks** | 0 · Part 3 | animated Sobel walkthrough (all 36 positions) · stride/padding & max-pool animations · translation equivariance animation · shape walkthrough · **Exercise 3: CNN on MNIST** · ResNet feature hierarchy | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/02_convolutional_neural_networks.ipynb) |
 | 03 | **Vision Foundation Models: the CNN era** | 1 · Part 1 | a random kernel *learning* to become Sobel (animation) · stride = K → patches · ImageNet history · plain vs. residual networks experiment · ResNet-50 feature extraction, t-SNE, retrieval · **linear probe vs. training from scratch** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/03_vision_foundation_models.ipynb) |
@@ -32,15 +32,17 @@ and hands-on exercises (with hidden solutions).
 * **Exercises** are marked ✏️. The solution cell right after each one is collapsed (Colab "form" cell): double-click to reveal.
   Running a solution cell overwrites the student's own version, so students should skip it when testing their code.
 * Figure-drawing code is hidden in collapsed cells (🎨 / 🎞️) so the visible code stays focused on the ideas.
-* Approximate run time on a Colab T4: 00 < 1 min · 01 ~1 min · 02 ~2 min · 03 ~3 min · 04 ~2 min · 05 ~5 min.
+* Approximate run time on a Colab T4: 00 ~1 min · 01 ~1 min · 02 ~2 min · 03 ~3 min · 04 ~2 min · 05 ~5 min.
 
 ## How the material was restructured
 
 The two slide decks were turned into six notebooks, three per session, each with a single theme.
 
 **Session 0 (ANNs & CNNs)**
-* *Concept → demo → exercise* order: the old "Exercise 1" and "Example: small ANN in action" slides are now a live demo
-  (two-moons, with vs. without activation) followed by the Iris exercise.
+* Notebook 00 is **show-and-tell** and follows one running example, the iris petals: a single neuron solved by hand in a
+  playground (Task A works, Task B can't be solved with one line) → a hand-built 2 → 2 → 1 network shows why hidden layers
+  need a non-linearity → gradient descent, backpropagation (layer by layer) and the training loop as animations. The old
+  Iris exercise was removed.
 * The **Sobel walkthrough** moved here from the Session 1 recap. It is the clearest intuition for convolution, so it now
   sits where convolution is introduced (as one animation instead of five slides).
 * Stride/padding is taught **once** (notebook 02) instead of in both decks.
