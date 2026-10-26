@@ -14,10 +14,10 @@ figures in the style of the slides, **animations** you can step through frame by
 |---|---|---|---|---|
 | 00 | **Artificial Neural Networks**: neurons, activations, learning | 0 · Part 1 | one running example (iris petals) · neuron playground: decision line + live loss landscape · why non-linearity: a hand-built 2 → 2 → 1 network · gradient-descent animation · backpropagation animation, layer by layer · the training loop step by step on mini-batches of 5 flowers | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/00_neural_networks_basics.ipynb) |
 | 01 | **Computer Vision & an MLP on MNIST** | 0 · Part 2 | images as numbers · classification / detection / segmentation / depth run live on boat photos · demo: an MLP on MNIST · why MLPs fail on images: shifting a digit by 2–3 px breaks it (animation) · shuffled-pixel experiment · scaling to 224 × 224 × 3: parameters, memory, measured training time, out of memory | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/01_computer_vision_and_mlp_mnist.ipynb) |
-| 02 | **Convolutional Neural Networks** | 0 · Part 3 | mini-project: hand-crafted kernels on the 224 × 224 boat photos → **learning the Sobel kernel** by gradient descent (animation) → CNN on MNIST · animated Sobel walkthrough (all 36 positions) · stride/padding & max-pool animations · translation equivariance animation · parameters at 224 × 224: CNN vs. MLP · **the CNN beats the MLP** with fewer parameters · MLP vs. CNN on shifted digits (animation) · ResNet feature hierarchy | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/02_convolutional_neural_networks.ipynb) |
-| 03 | **Vision Foundation Models: the CNN era** | 1 · Part 1 | short recap: a kernel learned from data (notebook 02) · stride = K → patches · ImageNet history · plain vs. residual networks experiment · ResNet-50 features of **six vessel types** (our maritime dataset): t-SNE, retrieval · **race: linear probe vs. training from scratch** (animation) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/03_vision_foundation_models.ipynb) |
-| 04 | **Vision Transformers** | 1 · Part 2 | self-attention from scratch + animation · patchification animation · "patch embedding = conv" proof · learned positional embeddings · demo: a mini-ViT trained on MNIST · [CLS] attention through 12 layers, and why it looks at the sky (artifact tokens) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/04_vision_transformers.ipynb) |
-| 05 | **Self-supervised pretraining & transfer** | 1 · Part 3 | mask-ratio animation + real MAE reconstructions · DINO multi-crop & attention heads · DINOv2 PCA: boat segmentation with zero labels · first-layer filters: random vs. supervised vs. self-supervised · frozen benchmarking on the vessel dataset (k-NN & linear) · **race: linear head vs. partial vs. full fine-tuning** with 50 labels per class (animation) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/05_self_supervised_learning_and_transfer.ipynb) |
+| 02 | **Convolutional Neural Networks** | 1 · Part 1 | mini-project: hand-crafted kernels on the 224 × 224 boat photos → **learning the Sobel kernel** by gradient descent (animation) → CNN on MNIST · animated Sobel walkthrough (all 36 positions) · stride/padding & max-pool animations · the border effect: why padding · translation equivariance animation · parameters at 224 × 224: CNN vs. MLP · **the CNN beats the MLP** with fewer parameters · MLP vs. CNN on shifted digits (animation) · **first data augmentation** (creating *new views*): random ±2 px shifts during training make the CNN robust to much larger shifts (the MLP gains too, but less) · ResNet feature hierarchy | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/02_convolutional_neural_networks.ipynb) |
+| 03 | **Vision Foundation Models: the CNN era** | 1 · Part 2 | what a VFM is, and why the term is deliberately vague · ImageNet history · plain vs. residual networks experiment · ResNet-50 features of **six vessel types** (our maritime dataset): t-SNE, retrieval · **race: linear probe vs. training from scratch** (animation) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/03_vision_foundation_models.ipynb) |
+| 04 | **Vision Transformers** | 1 · Part 3 | self-attention from scratch + animation · stride = kernel size → patches · patchification animation · "patch embedding = conv" proof · learned positional embeddings · demo: a mini-ViT trained on MNIST · [CLS] attention through 12 layers, and why it looks at the sky (artifact tokens) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/04_vision_transformers.ipynb) |
+| 05 | **Self-supervised pretraining & transfer** | 1 · Part 4 | mask-ratio animation + real MAE reconstructions · DINO multi-crop & attention heads · DINOv2 PCA: boat segmentation with zero labels · first-layer filters: random vs. supervised vs. self-supervised · frozen benchmarking on the vessel dataset (k-NN & linear) · **race: linear head vs. partial vs. full fine-tuning** with 50 labels per class (animation) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TorbenGl/visionseminar/blob/main/notebooks/05_self_supervised_learning_and_transfer.ipynb) |
 
 > The Colab badges point to the `main` branch of this repository. If the repository is private, Colab asks you to
 > authorise GitHub the first time (or use *File → Upload notebook*). For students, either make the repo public or
@@ -33,16 +33,17 @@ figures in the style of the slides, **animations** you can step through frame by
 * **No exercises:** every notebook is a demo. 🎤 marks prompts for the presenter: questions for the audience (the answer
   is folded away, click to reveal) or a value worth changing live.
 * Figure-drawing code is hidden in collapsed cells (🎨 / 🎞️) so the visible code stays focused on the ideas.
-* Approximate run time on a Colab T4: 00 ~1 min · 01 ~1.5 min · 02 ~2.5 min · 03 ~2 min · 04 ~2 min · 05 ~3–4 min (03–05 estimated, not yet timed on a T4).
+* Approximate run time on a Colab T4: 00 ~1 min · 01 ~1.5 min · 02 ~3.5 min · 03 ~2 min · 04 ~2 min · 05 ~3–4 min (03–05 estimated, not yet timed on a T4).
 
 ## How the material was restructured
 
-The two slide decks were turned into six notebooks, three per session, each with a single theme.
+The two slide decks were turned into six notebooks, each with a single theme. Session 0 covers 00–01; the CNN notebook (02)
+moved to the start of session 1, which therefore has four parts (02–05).
 
 All six notebooks are **show-and-tell**: the former exercises are now demos (the solution code runs in place), and the
 "try this" prompts became 🎤 questions for the audience with a folded answer.
 
-**Session 0 (ANNs & CNNs)**
+**Session 0 (ANNs & MLPs) and the CNN notebook**
 * Notebook 00 follows one running example, the iris petals: a single neuron solved by hand in a
   playground (Task A works, Task B can't be solved with one line) → a hand-built 2 → 2 → 1 network shows why hidden layers
   need a non-linearity → gradient descent, backpropagation (layer by layer) and the training loop as animations. The old
@@ -54,6 +55,10 @@ All six notebooks are **show-and-tell**: the former exercises are now demos (the
   time per step, and an out-of-memory attempt for an MLP with the same shape as the MNIST one).
 * Notebook 02 is organised as a mini-project: hand-crafted kernels on the 224 × 224 photos → learn the Sobel kernel from
   input–target pairs → a CNN on MNIST with fewer parameters, which also survives the shift experiment from notebook 01.
+  The CNN uses padding 1 (a figure shows how rarely the border pixels are seen without it), and the notebook ends the
+  shift experiment with a first **data augmentation**: training on digits moved by up to ±2 px. Comparing MLP and CNN,
+  each with and without augmentation, at ±4 px (never seen in training) shows that augmentation helps both, but the CNN's
+  built-in inductive bias plus augmentation stays well ahead.
 * Stride/padding is taught **once** (notebook 02) instead of in both decks.
 * New experiment that ties the session together: an MLP doesn't care if you **shuffle the pixels** (notebook 01), a CNN does
   (notebook 02). This makes "spatial structure" and "inductive bias" concrete, and it pays off again in the ViT notebook.
@@ -66,8 +71,11 @@ All six notebooks are **show-and-tell**: the former exercises are now demos (the
 * Learning is shown as it happens: an epoch-by-epoch race between a linear probe and a CNN trained from scratch (03), and between
   the four adaptation strategies (05). Notebook 05 also shows what random, supervised and self-supervised backbones learned in
   their very first layer, the bridge back to the Sobel kernel of notebook 02.
-* The recap is short and builds the bridge to the new material: one static figure of the kernel that notebook 02 learned
-  from data (same photos, same start; no second animation), then stride = K → patches → tokens.
+* Because notebook 02 now runs in the same session, notebook 03 has no recap any more: one paragraph links back to the
+  learned kernels. "Stride = kernel size → patches" moved to notebook 04, where the ViT needs it. Notebook 03 instead
+  stresses that *foundation model* is a deliberately vague term: what matters is the ability to transfer, a matter of degree.
+* The word **view** connects the session: the shifted digits in 02 are *new views* (data augmentation), 03 trains with
+  random crops and flips, and DINO in 05 learns without labels by making all views of a photo agree.
 * Every claim gets a small experiment: skip connections (plain vs. residual at depth 8 and 50), the value of pretraining
   (linear probe vs. training from scratch), supervised vs. self-supervised features (frozen benchmark), and the adaptation
   spectrum (linear / MLP head / partial / full fine-tuning).
@@ -80,7 +88,7 @@ While converting I fixed a few inconsistencies; you may want to update the PDFs 
 | Slide | Issue | In the notebooks |
 |---|---|---|
 | S0 p.16 vs. S1 p.3 | "translation **invariance**" vs. "translation **equivariance**" | convolution is *equivariant*; pooling adds (some) *invariance*, shown in an animation (02) |
-| S0 p.16 | ANN total "∼234,752" (weights only, no biases) vs. 235,146 on p.12/18; CNN total "∼108,170" mixes counts with and without biases and leaves out the last FC layer | all counts computed from the actual models: MLP 235,146, CNN 108,618 |
+| S0 p.16 | ANN total "∼234,752" (weights only, no biases) vs. 235,146 on p.12/18; CNN total "∼108,170" mixes counts with and without biases and leaves out the last FC layer | all counts computed from the actual models: MLP 235,146, CNN 206,922 (with padding 1) |
 | S1 p.16 | "Human ≈ 95 %" drawn on a **top-1** accuracy chart; the 5.1 % human figure is a **top-5 error** | ILSVRC top-5 error chart with the human 5.1 % line (03) |
 | S1 p.16 | "every winning method has been a CNN (until ViT, 2021)": ILSVRC ended in 2017, ViT never competed | phrased as "from then on every winner was a CNN" |
 | S1 p.11–12 | the example input switches from 8×8 to 6×6; the stride-2 slide labels its top row "stride 1" | one consistent 7×7 animation comparing stride 1, stride 2 and padding 1 (02) |
