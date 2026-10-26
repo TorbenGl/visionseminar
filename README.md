@@ -76,7 +76,7 @@ All six notebooks are **show-and-tell**: the former exercises are now demos (the
   stresses that *foundation model* is a deliberately vague term: what matters is the ability to transfer, a matter of degree.
 * The word **view** connects the session: the shifted digits in 02 are *new views* (data augmentation), 03 trains with
   random crops and flips, and DINO in 05 learns without labels by making all views of a photo agree.
-* Every claim gets a small experiment: skip connections (plain vs. residual at depth 8 and 50), the value of pretraining
+* Every claim gets a small experiment: the value of pretraining
   (linear probe vs. training from scratch), supervised vs. self-supervised features (frozen benchmark), and the adaptation
   spectrum (linear / MLP head / partial / full fine-tuning).
 * Real maritime examples throughout (COCO photos of trawlers, sailboats, lifeboats, ferries, marinas).
